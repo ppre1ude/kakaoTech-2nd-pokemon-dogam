@@ -1,32 +1,19 @@
-import React from "react";
-import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
-const Card = styled.div`
-  border: 2px solid #dddddd;
-  background-color: #ffffff;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  padding: 10px;
-  cursor: pointer;
-  color: black;
-  transition: transform 0.2s, box-shadow 0.2s;
+function PokemonCard({ pokemon, addPokemon }) {
+  const navigate = useNavigate();
 
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-`;
-
-function PokemonCard({ pokemon }) {
   return (
-    <Card>
-      <div>{pokemon.korean_name}</div>
-      <img src={pokemon.img_url} />
-      <div>{pokemon.description}</div>
-    </Card>
+    <div style={{ border: "1px solid #ccc", padding: "8px", width: "150px" }}>
+      <img
+        src={pokemon.img_url}
+        alt={pokemon.korean_name}
+        onClick={() => navigate(`/detail/${pokemon.id}`)}
+        style={{ width: "100px", cursor: "pointer" }}
+      />
+      <p>{pokemon.korean_name}</p>
+      <p>{pokemon.types.join(", ")}</p>
+      <button onClick={() => addPokemon(pokemon)}>추가</button>
+    </div>
   );
 }
-
-export default PokemonCard;

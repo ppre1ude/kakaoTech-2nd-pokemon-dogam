@@ -1,22 +1,12 @@
-import { useState } from "react";
-import styled from "styled-components";
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
-import MOCK_DATA from "../mock";
 
-const DexContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-`;
-
-export default function Dex() {
-  const [selectedPokemon, setSelectedPokemon] = useState([]);
+function Dex({ selected, addPokemon, removePokemon, list }) {
   return (
-    <DexContainer>
-      <Dashboard selectedPokemon={selectedPokemon} />
-      <PokemonList pokemonList={MOCK_DATA} />
-    </DexContainer>
+    <div>
+      <h2>포켓몬 도감</h2>
+      <Dashboard selected={selected} removePokemon={removePokemon} />
+      <PokemonList list={list} addPokemon={addPokemon} />
+    </div>
   );
 }

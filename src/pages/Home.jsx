@@ -1,39 +1,47 @@
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import pokemonLogo from "../assets/pokemon-logo.png";
 
-const HomeContainer = styled.div`
+const Container = styled.div`
+  background-color: #fce8c4;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100vh;
+  align-items: center;
+`;
+
+const Logo = styled.img`
+  width: 300px;
+  margin-bottom: 30px;
 `;
 
 const StartButton = styled.button`
-  padding: 10px 20px;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 5px;
-  background-color: #ff0000;
+  background-color: #e53935;
   color: white;
   border: none;
-  transition: background-color 0.3s ease;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
 
   &:hover {
-    background-color: #cc0000;
+    background-color: #d32f2f;
   }
 `;
 
-export default function Home() {
+function Home() {
   const navigate = useNavigate();
 
   return (
-    <HomeContainer>
-      <h1>포켓몬 도감</h1>
+    <Container>
+      <Logo src={pokemonLogo} alt="Pokemon Logo" />
       <StartButton onClick={() => navigate("/dex")}>
         포켓몬 도감 시작하기
       </StartButton>
-    </HomeContainer>
+    </Container>
   );
 }
+
+export default Home;
