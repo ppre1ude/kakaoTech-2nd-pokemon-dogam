@@ -17,3 +17,5 @@ function PokemonCard({ pokemon, addPokemon }) {
     </div>
   );
 }
+
+export default PokemonCard;
