@@ -3,7 +3,7 @@ import styled from "styled-components";
 import pokemonLogo from "../assets/pokemon-logo.png";
 
 const Container = styled.div`
-  background-color: #fce8c4;
+  background-color: #3366aa;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -31,14 +31,25 @@ const StartButton = styled.button`
   }
 `;
 
+const Description = styled.p`
+  color: white;
+  font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+`;
+
 function Home() {
   const navigate = useNavigate();
 
   return (
     <Container>
       <Logo src={pokemonLogo} alt="Pokemon Logo" />
+      <Description>
+        카카오테크캠퍼스 FE 2차 과제 / 전남대학교 최재원
+      </Description>
       <StartButton onClick={() => navigate("/dex")}>
-        포켓몬 도감 시작하기
+        포켓몬 도감 펼치기
       </StartButton>
     </Container>
   );

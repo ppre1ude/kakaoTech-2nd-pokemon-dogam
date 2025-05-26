@@ -1,12 +1,26 @@
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
+import MOCK_DATA from "../mock";
+import styled from "styled-components";
 
-function Dex({ selected, addPokemon, removePokemon, list }) {
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+`;
+
+const Title = styled.h2`
+  text-align: center;
+  color: red;
+`;
+
+function Dex() {
   return (
-    <div>
-      <h2>포켓몬 도감</h2>
-      <Dashboard selected={selected} removePokemon={removePokemon} />
-      <PokemonList list={list} addPokemon={addPokemon} />
-    </div>
+    <Container>
+      <Dashboard />
+      <PokemonList list={MOCK_DATA} />
+    </Container>
   );
 }
+
+export default Dex;
